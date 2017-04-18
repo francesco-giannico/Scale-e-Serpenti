@@ -1,0 +1,46 @@
+# Project: Scale_e_serpenti
+# Makefile created by Dev-C++ 5.5.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o funzioni.o Nuova_partita.o Carica_partita.o Salva_partita.o Impostazioni.o Record.o
+LINKOBJ  = main.o funzioni.o Nuova_partita.o Carica_partita.o Salva_partita.o Impostazioni.o Record.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW32/mingw32/lib" -static-libstdc++ -static-libgcc -g3
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW32/lib/gcc/mingw32/4.7.2/include/c++"
+BIN      = Scale_e_serpenti.exe
+CXXFLAGS = $(CXXINCS) -g3
+CFLAGS   = $(INCS) -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+funzioni.o: funzioni.c
+	$(CC) -c funzioni.c -o funzioni.o $(CFLAGS)
+
+Nuova_partita.o: Nuova_partita.c
+	$(CC) -c Nuova_partita.c -o Nuova_partita.o $(CFLAGS)
+
+Carica_partita.o: Carica_partita.c
+	$(CC) -c Carica_partita.c -o Carica_partita.o $(CFLAGS)
+
+Salva_partita.o: Salva_partita.c
+	$(CC) -c Salva_partita.c -o Salva_partita.o $(CFLAGS)
+
+Impostazioni.o: Impostazioni.c
+	$(CC) -c Impostazioni.c -o Impostazioni.o $(CFLAGS)
+
+Record.o: Record.c
+	$(CC) -c Record.c -o Record.o $(CFLAGS)
